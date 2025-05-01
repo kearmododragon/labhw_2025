@@ -1,0 +1,79 @@
+ 5403  cd Star_Wars_CLI
+ 5404  ls
+ 5405  mkdir star_wars
+ 5406  ls
+ 5407  cd star_wars
+ 5408  mkdir empire rebellion
+ 5409  ls
+ 5410  touch empire/darth_vader.txt
+ 5411  ls
+ 5412  cd empire
+ 5413  ls
+ 5414  echo "...heavy breathing..." empire/darth_vader.txt
+ 5415  ls
+ 5416  cd darth_vader.txt
+ 5417  echo "...heavy breathing..." > empire/darth_vader.txt
+ 5418  ls
+ 5419  cd ..
+ 5420  echo "...heavy breathing..." > empire/darth_vader.txt
+ 5421  touch empire/emporor_palpatine.txt
+ 5422  mkdir empire/death_star
+ 5423  ls
+ 5424  cd empire
+ 5425  ls
+ 5426  cd ..
+ 5427  mv empire/darth_vader.txt empire/death_star
+ 5428  git add .
+ 5429  gir commit -m "act 1"
+ 5430  git commit -m "act 1"
+ 5431  ls
+ 5432  cd ..
+ 5433  ls
+ 5434  cd star_wars
+ 5435  touch rebellion/princess_leia.txt echo "Help me, Obi-Wan... You're my only hope."
+ 5436  ls
+ 5437  rm "Help me, Obi-Wan... You're my only hope."
+ 5438  ls
+ 5439  rm echo
+ 5440  rm rebellion/princess_leia.txt
+ 5441  echo "Help me, Obi-Wan... You're my only hope." > rebellion.princess_leia.text
+ 5442  rm rebellion.princess_leia.text
+ 5443  echo "Help me, Obi-Wan... You're my only hope." > rebellion/princess_leia.text
+ 5444  touch rebellion/obi_wan.txt
+ 5445  ls
+ 5446  touch rebellion/luke_skywalker.txt
+ 5447  mkdir rebellion/millenium_falcon
+ 5448  touch rebellion/millenium_falcon/han_solo.txt chewbacca.txt
+ 5449  rm chewbacca.txt
+ 5450  rm rebellion/millenium_falcon/han_solo.txt
+ 5451  touch rebellion/millenium_falcon/han_solo.txt rebellion/millenium_falcon/chewbacca.txt
+ 5452  mv rebellion/luke_skywalker.txt rebellion/obi_wan.txt rebellion/princess_leia.text > rebellion/millenium_falcon
+ 5453  mv rebellion/luke_skywalker.txt rebellion/obi_wan.txt rebellion/princess_leia.text rebellion/millenium_falcon
+ 5454  mv rebellion/millenium_falcon empire/death_star
+ 5455  git add .
+ 5456  git commit -m "act 2"
+ 5457  mv empire/death_star/millenium_falcon empire/death_star
+ 5458  mv empire/death_star/millenium_falcon/chewbacca.txt empire/death_star/millenium_falcon/han_solo.txt empire/death_star/millenium_falcon/luke_skywalker.txt empire/death_star/millenium_falcon/obi_wan.txt empire/death_star/millenium_falcon/princess_leia.text empire/death_star
+ 5459  rm empire/death_star/obi_wan.txt
+ 5460  mv empire/death_star/chewbacca.txt empire/death_star/han_solo.txt empire/death_star/luke_skywalker.txt empire/death_star/princess_leia.text empire/death_star/millenium_falcon
+ 5461  mv empire/death_star/millenium_falcon rebellion
+ 5462  mv empire/death_star/darth_vader.txt empire
+ 5463  rm empire/death_star
+ 5464  rm-r empire/death_star
+ 5465  rmdir empire/death_star
+ 5466  git add .
+ 5467  git commit -m "act 3"
+ 5468  git push
+ 5469  gh auth login
+ 5470  git push
+ 5471  ls
+ 5472  git push
+ 5473  gh auth login
+ 5474  git push
+ 5475  git push -u
+ 5476  git checkout -b
+ 5477  git push -u origin
+ 5478  git remove -v
+ 5479  git remote -v
+ 5480  git remote set-url origin kearmododragon/star_wars_2025
+ 5481  git push
