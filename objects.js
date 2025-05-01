@@ -7,11 +7,13 @@ const album1 = {
     }
   };
   
+
   // Exercise 1:  Update the title property of album1 from 'Talking Heads' to 'Talking Heads - 77', then assign that property to a variable named title
-  
+album1.title ="Talking Heads - 77"
+title = album1.title
   
   // Exercise 2: Assign the string 'Sire' from album1 to a variable named label
-  
+ label = album1.albumDetails.label
   
   const album2 = {
     title: 'More Songs About Buildings and Food',
@@ -32,12 +34,12 @@ const album1 = {
   };
   
   // Exercise 3: Accessing the string 'LP' from album2's formats array, add it to the end of album3's formats array.
-  
+  album3.albumDetails.formats.push(album2.albumDetails.formats)
   
   
   
   // Exercise 4:  Update the released property of album3 from a string into a Date object using that string
-  
+  album3.albumDetails.released = new Date("Augest 3, 1979")
   
   
   
@@ -50,7 +52,7 @@ const album1 = {
   };
   
   // Exercise 5:  Add a property named label with the value 'Sire' to album4's albumDetails property
-  
+  album4.albumDetails.label = "Sire"
   
   
   
@@ -64,7 +66,7 @@ const album1 = {
   };
   
   // Exercise 6:  Update the value 'emi' within album5's labels array to 'EMI'
-  
+  album5.albumDetails.labels[1] = "EMI"
   
   
   
@@ -78,7 +80,7 @@ const album1 = {
   };
   
   // Exercise 7:  Assign album6's formats array to a variable named formats
-  
+  formats = album6.albumDetails.formats
   
   
   
@@ -102,33 +104,35 @@ const album1 = {
   ];
   
   // Exercise 8:  Using the talkingHeadsAlbums array, assign album5's labels property to a variable named labels
-  
+  labels = album5.albumDetails.labels
   
   
   
   // Exercise 9:  Using the talkingHeadsAlbums array, assign album7's released property to album6's released property
-  
+  album6.albumDetails.released = album7.albumDetails.released
   
   
   
   // Exercise 10:  Using the pre-defined variable named albumIdx below, assign the albumDetails object of the album located within the talkingHeadsAlbums array at the index represented by the value of albumIdx to a variable named albumDetails
   
   let albumIdx = 4;
+
+  albumDetails = talkingHeadsAlbums[albumIdx].albumDetails
   
   
   
   
   /********** Don't look below here **********/
   
-  console.log('Exercise 1:', title);
-  console.log('Exercise 2:', label);
-  console.log('Exercise 3:', album3.albumDetails.formats[1]);
-  console.log('Exercise 4:', album3.albumDetails.released.toLocaleDateString());
-  console.log('Exercise 5:', album4.albumDetails.label);
-  console.log('Exercise 6:', album5.albumDetails.labels[1]);
-  console.log('Exercise 7:', formats);
-  console.log('Exercise 8:', labels);
-  console.log('Exercise 9:', talkingHeadsAlbums[5].albumDetails.released.toLocaleDateString());
+  console.log('Exercise 1:', title, ' -- Talking Heads - 77');
+  console.log('Exercise 2:', label, ' -- Sire');
+  console.log('Exercise 3:', album3.albumDetails.formats[1], ' -- LP');
+  console.log('Exercise 4:', album3.albumDetails.released.toLocaleDateString(), ' -- 8/3/1979');
+  console.log('Exercise 5:', album4.albumDetails.label, ' -- Sire');
+  console.log('Exercise 6:', album5.albumDetails.labels[1], ' -- EMI');
+  console.log('Exercise 7:', formats, ' -- CD, cassette, LP');
+  console.log('Exercise 8:', labels, ' -- Sire, EMI');
+  console.log('Exercise 9:', talkingHeadsAlbums[5].albumDetails.released.toLocaleDateString(), ' -- 3/15/1988');
   console.log('Exercise 10:', albumDetails);
 
 
