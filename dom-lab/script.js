@@ -40,6 +40,12 @@ console.log("3.0 = ", menuLinks)
 // 3.1 Iterate over the entire `menuLinks` array and for each "link" object:
 
 // - Create an `<a>` element.
+menuLinks.forEach(function(link){
+    const linkEl = document.createElement('a')
+    linkEl.setAttribute('href', link.href)
+    linkEl.innerText = link.text
+    topMenuEl.appendChild(linkEl)
+})
 // - On the new element, add an `href` attribute with its value set to the `href` property of the "link" object.
 // - Set the new element's content to the value of the `text` property of the "link" object.
 // - Append the new element to the `topMenuEl` element.
