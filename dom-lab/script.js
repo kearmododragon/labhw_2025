@@ -5,21 +5,20 @@ const menuLinks = [
     {text: 'account', href: '/account'},
   ];
 // 1.0 Select and cache the <main> element in a variable named mainEl
-
-mainEl = document.querySelector("main")
+const mainEl = document.querySelector("main");
 console.log("1.0 = ",mainEl)
 
 // 1.1 Set the background color of `mainEl` using the `--main-bg` CSS custom property.
 //Hint: Assign a string that uses the CSS `var()` function like this: `'var(--main-bg)'`
-mainEl.style.backgroundColor = 'var(--main-bg)'
+mainEl.style.backgroundColor = 'var(--main-bg)';
 console.log("1.1 = ", mainEl.style.backgroundColor)
 
 // 1.2 Set the content of `mainEl` to `<h1>SEI Rocks!</h1>`.
-mainEl.innerHTML = "<h1>SEI Rocks!</h1>"
+mainEl.innerHTML = "<h1>SEI Rocks!</h1>";
 console.log("1.2 = ", mainEl.innerHTML)
 // 1.3 Add a class of `flex-ctr` to `mainEl`. 
 // Hint: [Element.classList API](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList)
-mainEl.classList.add("flex-ctr")
+mainEl.classList.add("flex-ctr");
 console.log("1.3 = ", mainEl.classList)
 
 // 2.0 Select and cache the `<nav id="top-menu">` element in a variable named `topMenuEl`.
