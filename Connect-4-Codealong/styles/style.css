@@ -1,7 +1,4 @@
-* {
-    box-sizing: border-box;
-    border: solid red;
-}
+
 
 body {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
@@ -20,7 +17,7 @@ body {
 
 header {
     /* styling for header - size, color*/
-    color: purple;
+    color: blue;
     font-size: 32px;
 }
 
@@ -50,7 +47,8 @@ h1 {
     /* set a height for the marker */
     height: 5vmin;
     border: 5vmin solid;
-    border-color: gray;
+    border-color: gray transparent transparent;
+    gap: 1vmin;
     /* provide a wide border width and solid border style */ 
     /* use the border-color to make the top border grey but the other sides should be transparent*/
     /* https://www.w3schools.com/cssref/pr_border-color.php */
@@ -63,17 +61,25 @@ h1 {
    /* change the border-top property to another color */
 }
 
-#board {
-    
+#gameboard {
+    display: grid;
+    width: 75vmin;
+    height: 75vmin;
+    grid-template-columns: repeat(7, 10vmin);
     /* create a grid container  */
     /* create a 7 column grid template */
     /* create a 6 row grid template */
+    grid-template-rows:  repeat(6, 10vmin);
     /* provide a small gap between rows and columns */
+    column-gap: 1vmin;
+    row-gap: 1vmin;
     
 }
 
-#board > div {
+#gameboard > div {
     /* provide a border radius to round the corners of the div */
+    border: 1px solid green;
+    border-radius: 100%;
 }
 
 button {
