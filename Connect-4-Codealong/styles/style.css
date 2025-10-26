@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+    border: solid red;
+}
+
+body {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
+
+    /* create a flex container with items in a column */
+    display: flex;
+    /* center the content vertically and horizontally */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+header {
+    /* styling for header - size, color*/
+    color: purple;
+    font-size: 32px;
+}
+
+h1 {
+     /* styling for heading - size, color*/
+     font-size: 1.3em;
+     margin-bottom: 0%;
+}
+
+#markers {
+    width: 75vmin;
+    margin: auto;
+    /* create a  grid container  */
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    /* create a 7 column grid template */
+    /* hint: look at the repeat() function */
+    gap: 1vmin;
+    
+    /* set a gap between the grid cells */
+    
+    /* set the margin-top between heading and markers */
+}
+
+#markers > div {
+    
+    /* set a height for the marker */
+    height: 5vmin;
+    border: 5vmin solid;
+    border-color: gray;
+    /* provide a wide border width and solid border style */ 
+    /* use the border-color to make the top border grey but the other sides should be transparent*/
+    /* https://www.w3schools.com/cssref/pr_border-color.php */
+    /* use the transform property to display it 75% of its original size */
+}
+#markers > div:hover {
+   
+    /* transform the scale to increase size */
+   /* add a transition to 'ease-in' the scaling animation */
+   /* change the border-top property to another color */
+}
+
+#board {
+    
+    /* create a grid container  */
+    /* create a 7 column grid template */
+    /* create a 6 row grid template */
+    /* provide a small gap between rows and columns */
+    
+}
+
+#board > div {
+    /* provide a border radius to round the corners of the div */
+}
+
+button {
+    /* set padding, font-size, and color for the button */
+    /* set a border and border radius for the button */
+}
+
+button:hover {
+    /* change the background color on hover*/
+    /* change the font color on hover */
+}
