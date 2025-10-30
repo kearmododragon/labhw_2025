@@ -11,20 +11,22 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    background-color: black;
 
 }
 
 header {
     /* styling for header - size, color*/
-    color: blue;
+    color: azure;
     font-size: 32px;
+    border: solid;
 }
 
 h1 {
      /* styling for heading - size, color*/
      font-size: 1.3em;
      margin-bottom: 0%;
+     color: azure;
 }
 
 #markers {
