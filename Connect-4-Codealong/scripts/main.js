@@ -17,13 +17,15 @@ const messageEl = document.querySelector('h1')
 const playAgainEl = document.querySelector('button')
 /*----- event listeners -----*/
 markerEls.addEventListener("click", handleDrop)
+playAgainEl.addEventListener("click", init);
+
 
 /*----- functions -----*/
 init ()
 function init(){
         // console.log("init")
     board = [
-        [1,-1,0,0,0,0], // column 0
+        [0,0,0,0,0,0], // column 0
         [0,0,0,0,0,0], // column 1
         [0,0,0,0,0,0], // column 2
         [0,0,0,0,0,0], // column 3
@@ -54,28 +56,33 @@ function renderBoard(){
     }) 
     
 }
-function renderMessage(){
-    if(winner === "T"){
-        messageEl.textContent = `It's a tie!`
-    } else if(winner){
-        let currentPlayer=COLORS[winner]
-        messageEl.innerHTML = `<span style="color: ${currentPlayer};">${currentPlayer.toUpperCase()}</span> Wins!`
-    }else {
-        let currentPlayer=COLORS[turn]
-        messageEl.innerHTML = `<span style="color: ${currentPlayer};">${currentPlayer.toUpperCase()}</span>'s turn...`
-    }
+function renderMessage() {
+  if (winner === "T") {
+    messageEl.textContent = `It's a tie!`;
+  } else if (winner) {
+    let currentPlayer = COLORS[String(winner)];
+    messageEl.innerHTML = `<span style="color: ${currentPlayer};">${currentPlayer.toUpperCase()}</span> Wins!`;
+  } else {
+    let currentPlayer = COLORS[String(turn)];
+    messageEl.innerHTML = `<span style="color: ${currentPlayer};">${currentPlayer.toUpperCase()}</span>'s turn...`;
+  }
 }
+
 function renderMarkers() {
   markerEls.querySelectorAll('div').forEach(marker => {
     marker.style.borderTopColor = COLORS[turn];
   });
 }
 function renderControls(){
-    playAgainEl.style.visibility = winner ? "visible": "Hidden"
+    playAgainEl.style.visibility = winner ? "visible": "hidden"
     const markers = markerEls.querySelectorAll('div')
     markers.forEach(function(markerEl, idx){
         // console.log(markerEl)
-        const isFull = !board[idx].includes(0) ? "Hidden" : "visible"
+        if (winner) {
+            markerEl.style.visibility = "hidden"
+            return;
+        }
+        const isFull = !board[idx].includes(0) ? "hidden" : "visible"
         // console.log(isFull)
         markerEl.style.visibility = isFull
     })
@@ -90,11 +97,52 @@ function handleDrop(evt){
     } const colArr = board[position]
     const next = colArr.indexOf(0)
     colArr[next] = turn
-    console.log ("next position", colArr.indexOf(0))
     console.log(board)
-    render()
+    winner = getWinner(position, next);
+    turn *= -1
+    render();
+}
+function getWinner(colIdx, rowIdx){
+    return checkVerticalWin (colIdx, rowIdx) ||
+        checkHorizontalWin (colIdx, rowIdx) ||
+        checkDiagonalWinNESW (colIdx, rowIdx) ||
+        checkDiagonalWinNWSE (colIdx, rowIdx);
 }
 
-//2 hours 24 mins into video
-// https://generalassembly.zoom.us/rec/play/xM0usrhgVv7y0G6wPFnxrSSSsez0K8kQix-B0n64ynGqxqChe0Y1Cqassg6HbaGy_G5TTs_xb9J-tmyD.PPWa9fKCmQ4qazh8?eagerLoadZvaPages=&isReferralProgramEnabled=false&isReferralProgramAvailable=false&accessLevel=meeting&canPlayFromShare=true&from=share_recording_detail&continueMode=true&componentName=rec-play&originRequestUrl=https%3A%2F%2Fgeneralassembly.zoom.us%2Frec%2Fshare%2Fqyz4LPE5fpgMW6gK6Z1cXPJqGNddEGlwX4U3Gtj5hckCkrTSTWEzkq1BJdAqubiF.gm0HbLeK629jbQ8r
-// t=f7zBE1
+function checkDiagonalWinNWSE (colIdx, rowIdx){
+    const adjCountnw = countAdjacent (colIdx, rowIdx, -1,1)
+    const adjCountSE = countAdjacent (colIdx, rowIdx, 1, -1)
+    return (adjCountnw + adjCountSE) >=3 ? board[colIdx] [rowIdx] : null
+}
+
+function checkDiagonalWinNESW (colIdx, rowIdx){
+    const adjCountnw = countAdjacent (colIdx, rowIdx, 1,1)
+    const adjCountSE = countAdjacent (colIdx, rowIdx, -1, -1)
+    return (adjCountnw + adjCountSE) >=3 ? board[colIdx] [rowIdx] : null
+}
+function checkHorizontalWin (colIdx, rowIdx){
+    const adjCountLeft = countAdjacent (colIdx, rowIdx, -1,0)
+    const adjCountRight = countAdjacent (colIdx, rowIdx, 1, 0)
+    return (adjCountLeft + adjCountRight) >=3 ? board[colIdx] [rowIdx] : null
+}
+function checkVerticalWin (colIdx, rowIdx){
+    return countAdjacent(colIdx, rowIdx, 0, -1) === 3 ? board[colIdx][rowIdx] : null;
+}
+function countAdjacent (colIdx, rowIdx, colOffset, rowOffset){
+    const player = board[colIdx][rowIdx];
+    let count = 0;
+    colIdx += colOffset;
+    rowIdx += rowOffset;
+    while (
+        board[colIdx] !== undefined &&
+        board[colIdx][rowIdx] !== undefined &&
+        board[colIdx][rowIdx] === player
+    ){
+        count ++;
+        colIdx += colOffset;
+        rowIdx += rowOffset;
+    }
+    return count;
+}
+
+
