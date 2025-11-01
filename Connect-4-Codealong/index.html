@@ -12,12 +12,25 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <!-- Header -->
-    <header> CONNECT FOUR</header>
-    <!-- Heading for Turn -->
+    <header id="main-title">Connect Four</header>
+    <!-- Player header with color pickers -->
+<header id="player-header">
+  <div class="player-panel" id="player1-panel">
+    <div class="player-name" id="player1-name" contenteditable="true">Player 1</div>
+    <div class="color-preview" id="p1-preview"></div>
+    <input class="color-picker" id="player1-color" type="color" value="#ff2d55" aria-label="Player 1 color picker">
+  </div>
+ <div id="score-panel">
+    <span id="score-p1">0</span> : <span id="score-tie">0</span> : <span id="score-p2">0</span>
+  </div>
+  <div class="player-panel" id="player2-panel">
+    <input class="color-picker" id="player2-color" type="color" value="#007aff" aria-label="Player 2 color picker">
+    <div class="color-preview" id="p2-preview"></div>
+    <div class="player-name" id="player2-name" contenteditable="true">Player 2</div>
+  </div>
+</header>
     <h1>Red's turn</h1>
-
-    <!-- #markers Section > divs-->
+            <button>Play Again?</button>
      <section id="markers">
         <div></div>
         <div></div>
@@ -27,14 +40,6 @@
         <div></div>
         <div></div>
      </section>
-        
-        <!-- provide ids for each of the child divs (42 divs)-->
-        <!-- use the id to indicate column and row positions -->
-        <!-- rows are 0 indexed with row 5 (the 6th row) at the top -->
-        <!-- columns are 0 indexed with column 0 (the 1st column) on the left-->
-        <!-- Example: id="c4r5" will be the 5th column on the top row -->
-    
-        <!-- #Gameboard Section -->
      <section id="gameboard">
         <div id="c0r5"></div>
         <div id="c1r5"></div>
@@ -83,9 +88,7 @@
         <div id="c4r0"></div>
         <div id="c5r0"></div>
         <div id="c6r0"></div>
-     </section>
-    <!-- Button Play Again -->
-    <button>Play Again?</button>
+     </section> 
 
 </body>
 </html>

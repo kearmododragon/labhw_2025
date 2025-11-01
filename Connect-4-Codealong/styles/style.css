@@ -1,95 +1,151 @@
-
-
+/* ---------------- Body & Global Styles ---------------- */
 body {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     height: 100vh;
     margin: 0;
-
-    /* create a flex container with items in a column */
     display: flex;
-    /* center the content vertically and horizontally */
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: black;
-
-}
-
-header {
-    /* styling for header - size, color*/
     color: azure;
-    font-size: 32px;
-    border: solid;
 }
 
+/* ---------------- Main Title ---------------- */
+header#main-title {
+    text-align: center;
+    color: azure;
+    font-size: 4vmin;       /* scales with viewport */
+    margin-top: 5vmin;      /* pushes the title down */
+    margin-bottom: 2vmin;   /* space between title and player panels */
+}
+
+/* ---------------- Player Header ---------------- */
+#player-header {
+    display: flex;
+    justify-content: space-between; /* left/right alignment for players */
+    align-items: center;
+    width: 75vmin; 
+    margin: 0 auto 2vmin;
+}
+
+.player-panel {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.player-name {
+    font-size: 1rem;
+    color: azure;
+    padding: 0.2rem 0.4rem;
+    min-width: 4rem;
+    text-align: center;
+    border-bottom: 1px dashed transparent;
+    outline: none;
+}
+.player-name:focus {
+    border-bottom-color: #fff;
+}
+
+.color-preview {
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    border: 2px solid #333;
+}
+
+.color-picker {
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* Hide color pickers when colors locked */
+.colors-locked input[type="color"] {
+    display: none;
+    visibility: hidden;
+}
+
+/* ---------------- Score Panel ---------------- */
+#score-panel {
+    text-align: center;
+    font-size: 2.5vmin;
+    font-weight: bold;
+    color: azure;
+    margin-bottom: 1vmin;
+}
+
+/* ---------------- Message ---------------- */
 h1 {
-     /* styling for heading - size, color*/
-     font-size: 1.3em;
-     margin-bottom: 0%;
-     color: azure;
+    font-size: 1.3em;
+    margin-bottom: 0.5rem;
+    color: azure;
+    text-align: center;
 }
 
+/* ---------------- Markers ---------------- */
 #markers {
+    position: relative;
     width: 75vmin;
     margin: auto;
-    /* create a  grid container  */
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    /* create a 7 column grid template */
-    /* hint: look at the repeat() function */
     gap: 1vmin;
-    
-    /* set a gap between the grid cells */
-    
-    /* set the margin-top between heading and markers */
 }
 
 #markers > div {
-    
-    /* set a height for the marker */
     height: 5vmin;
     border: 5vmin solid;
     border-color: gray transparent transparent;
-    gap: 1vmin;
-    /* provide a wide border width and solid border style */ 
-    /* use the border-color to make the top border grey but the other sides should be transparent*/
-    /* https://www.w3schools.com/cssref/pr_border-color.php */
-    /* use the transform property to display it 75% of its original size */
-}
-#markers > div:hover {
-   
-    /* transform the scale to increase size */
-   /* add a transition to 'ease-in' the scaling animation */
-   /* change the border-top property to another color */
+    cursor: pointer;
+    transform: scale(1); 
+    transition: transform 150ms ease, border-top-color 150ms ease;
 }
 
+#markers > div:hover {
+    transform: scale(1.08);
+    border-top-color: white !important;
+}
+
+/* ---------------- Game Board ---------------- */
 #gameboard {
     display: grid;
     width: 75vmin;
     height: 75vmin;
     grid-template-columns: repeat(7, 10vmin);
-    /* create a grid container  */
-    /* create a 7 column grid template */
-    /* create a 6 row grid template */
-    grid-template-rows:  repeat(6, 10vmin);
-    /* provide a small gap between rows and columns */
+    grid-template-rows: repeat(6, 10vmin);
     column-gap: 1vmin;
     row-gap: 1vmin;
-    
 }
 
 #gameboard > div {
-    /* provide a border radius to round the corners of the div */
     border: 1px solid green;
     border-radius: 100%;
 }
 
-button {
-    /* set padding, font-size, and color for the button */
-    /* set a border and border radius for the button */
+/* ---------------- Play Again Button ---------------- */
+#play-again {
+    display: block;
+    margin: 1vmin auto;
+    background-color: transparent !important;
+    color: white;
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    visibility: hidden;
+    transition: all 0.25s ease-in-out;
 }
 
-button:hover {
-    /* change the background color on hover*/
-    /* change the font color on hover */
+#play-again:hover {
+    background: rgba(255,255,255,0.1); 
+    border-color: white;
+}
+button:focus {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
